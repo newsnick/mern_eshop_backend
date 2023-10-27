@@ -17,6 +17,10 @@ dotenv.config()
 
 connectDB()
 
+const cors = require("cors")
+
+app.use(cors())
+
 const app = express()
 
 if (process.env.NODE_ENV === 'development') {
@@ -37,6 +41,11 @@ app.use('/api/upload', uploadRoutes)
 app.get('/api/config/paypal', (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
+
+app.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is running..");
+});
 
 const __dirname = path.resolve()
 app.use('/uploads', serveStatic(path.join(__dirname, 'uploads')))
