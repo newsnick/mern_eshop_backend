@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import path from 'path'
+import cors from 'cors'
 import morgan from 'morgan'
 import colors from 'colors'
 import serveStatic from 'serve-static'
@@ -15,8 +16,6 @@ import compression from 'compression'
 dotenv.config()
 
 connectDB()
-
-const cors = require("cors")
 
 app.use(cors())
 
