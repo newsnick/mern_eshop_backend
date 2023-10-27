@@ -15,17 +15,17 @@ import compression from 'compression'
 
 dotenv.config()
 
+const app = express()
+
 connectDB()
 
 app.use(cors())
+app.use(compression())
 
-const app = express()
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
 }
-
-app.use(compression())
 
 app.use(express.json())
 
