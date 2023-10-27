@@ -1,6 +1,5 @@
 import express from 'express'
 import dotenv from 'dotenv'
-import cors from 'cors'
 import path from 'path'
 import morgan from 'morgan'
 import colors from 'colors'
@@ -28,8 +27,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 app.use(compression())
-
-app.use()
 
 app.use(express.json())
 
